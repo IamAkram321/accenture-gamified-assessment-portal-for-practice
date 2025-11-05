@@ -1,12 +1,23 @@
 import { useState } from 'react'
-import './App.css'
+import GameSelector from './components/GameSelector'
+import MazeGame from './components/games/MazeGame'
+import KeyGame from './components/games/KeyGame'
+import BubbleGame from './components/games/BubbleGame'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [currentGame, setCurrentGame] = useState(null)
 
-  return (
-    <h1 className='bg-red-700'>checking tailwind is working or not</h1>
-  )
+  if (currentGame === 'maze') {
+    return <MazeGame onBack={() => setCurrentGame(null)} />
+  }
+  if (currentGame === 'key') {
+    return <KeyGame onBack={() => setCurrentGame(null)} />
+  }
+  if (currentGame === 'bubble') {
+    return <BubbleGame onBack={() => setCurrentGame(null)} />
+  }
+
+  return <GameSelector onSelectGame={setCurrentGame} />
 }
 
 export default App
