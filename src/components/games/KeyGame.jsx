@@ -43,7 +43,7 @@ const KeyGame = ({ onBack }) => {
   const [score, setScore] = useState(0)
   const [gameComplete, setGameComplete] = useState(false)
   const [attempts, setAttempts] = useState(0)
-  const [remainingSeconds, setRemainingSeconds] = useState(300)
+  const [remainingSeconds, setRemainingSeconds] = useState(60)
 
   useEffect(() => {
     if (level < 3) {
@@ -53,11 +53,11 @@ const KeyGame = ({ onBack }) => {
       setRevealedCells({})
       setGameComplete(false)
       setAttempts(0)
-      setRemainingSeconds(300)
+      setRemainingSeconds(60)
     }
   }, [level])
 
-  // Countdown timer per level (5 minutes)
+  // Countdown timer per level (1 minute)
   useEffect(() => {
     if (!grid || gameComplete) return
     const intervalId = setInterval(() => {

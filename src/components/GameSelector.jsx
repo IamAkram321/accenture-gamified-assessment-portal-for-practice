@@ -38,7 +38,7 @@ const GameSelector = ({ onSelectGame }) => {
             <button
               key={game.id}
               onClick={() => onSelectGame(game.id)}
-              className={`${game.color} text-white rounded-xl p-8 shadow-lg transform transition-all duration-200 hover:scale-105 hover:shadow-xl flex flex-col items-center space-y-4`}
+              className={`${game.color} text-white rounded-xl p-8 shadow-lg transform transition-all duration-200 hover:scale-105 hover:shadow-xl flex flex-col items-center space-y-4 cursor-pointer`}
             >
               <div className="text-6xl">{game.icon}</div>
               <h2 className="text-2xl font-bold">{game.name}</h2>

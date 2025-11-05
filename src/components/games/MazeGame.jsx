@@ -60,7 +60,7 @@ const MazeGame = ({ onBack }) => {
   const [score, setScore] = useState(0)
   const [gameComplete, setGameComplete] = useState(false)
   const [shortestPath, setShortestPath] = useState([])
-  const [remainingSeconds, setRemainingSeconds] = useState(300)
+  const [remainingSeconds, setRemainingSeconds] = useState(60)
   const canvasRef = useRef(null)
 
   // when level changes → reset maze + timer
@@ -72,12 +72,12 @@ const MazeGame = ({ onBack }) => {
       setPath([])
       setStartTime(Date.now())
       setGameComplete(false)
-      setRemainingSeconds(300)
+      setRemainingSeconds(60)
       calculateShortestPath(newMaze)
     }
   }, [level])
 
-  // countdown timer (5 mins per level)
+  // countdown timer (1 min per level)
   useEffect(() => {
     if (!maze || gameComplete) return
     const intervalId = setInterval(() => {

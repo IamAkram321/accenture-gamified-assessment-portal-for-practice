@@ -64,7 +64,7 @@ const BubbleGame = ({ onBack }) => {
   const [gameComplete, setGameComplete] = useState(false)
   const [startTime, setStartTime] = useState(null)
   const [result, setResult] = useState(null)
-  const [remainingSeconds, setRemainingSeconds] = useState(300)
+  const [remainingSeconds, setRemainingSeconds] = useState(60)
 
   useEffect(() => {
     if (level < 3) {
@@ -74,11 +74,11 @@ const BubbleGame = ({ onBack }) => {
       setGameComplete(false)
       setStartTime(Date.now())
       setResult(null)
-      setRemainingSeconds(300)
+      setRemainingSeconds(60)
     }
   }, [level])
 
-  // countdown timer per level (5 minutes)
+  // countdown timer per level (1 minute)
   useEffect(() => {
     if (gameComplete || !bubbles.length) return
     const intervalId = setInterval(() => {
